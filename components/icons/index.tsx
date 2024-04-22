@@ -1,0 +1,15 @@
+export { Headphone } from "./headphone";
+export { User } from "./user";
+export { Heart } from "./heart";
+export { Cart } from "./cart";
+export { Hamburger } from "./hamburger";
+export { Facebook } from "./facebook";
+export { Twitter } from "./twitter";
+export { Instagram } from "./instagram";
+export { Linkedin } from "./linkedin";
+export { ChevronLeft } from "./chevron-left";
+export { ChevronRight } from "./chevron-right";
+export { ChevronUp } from "./chevron-up";
+export { ChevronDown } from "./chevron-down";
+export { Check } from "./check";
+export { MagnifyingGlass } from "./magnifying-glass";
