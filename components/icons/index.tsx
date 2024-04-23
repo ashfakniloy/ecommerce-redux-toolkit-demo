@@ -13,3 +13,6 @@ export { ChevronUp } from "./chevron-up";
 export { ChevronDown } from "./chevron-down";
 export { Check } from "./check";
 export { MagnifyingGlass } from "./magnifying-glass";
+export { X } from "./x";
+export { Plus } from "./plus";
+export { Minus } from "./minus";

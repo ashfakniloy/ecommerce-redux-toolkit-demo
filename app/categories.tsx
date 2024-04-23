@@ -43,10 +43,7 @@ export default function Categories() {
     // <div className="bg-[linear-gradient(#f3edc9,#ffffff,#ffffff)]">
     <div className="bg-[linear-gradient(#F8F5D6,#ffffff,#ffffff)]">
       <div className="py-4 container">
-        <Carousel
-          opts={{ align: "start", skipSnaps: true, dragFree: true }}
-          className=""
-        >
+        <Carousel opts={{ align: "start", skipSnaps: true, dragFree: true }}>
           <CarouselContent className="mx-auto">
             {categoriesData.map((category, i) => (
               <CarouselItem key={i} className="basis-1/4 ">

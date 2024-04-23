@@ -3,6 +3,7 @@ import { Headphone, User, Heart, Cart } from "@/components/icons";
 import WinstoreLogo from "@/public/logo.svg";
 import Link from "next/link";
 import Search from "./search";
+import ShoppingCart from "./shopping-cart";
 
 export default function HeaderTop() {
   return (
@@ -31,10 +32,8 @@ export default function HeaderTop() {
           <Link href="">
             <Heart />
           </Link>
-          <Link href="" className="flex gap-1">
-            <Cart />
-            <span className="font-light">Cart</span>
-          </Link>
+
+          <ShoppingCart />
         </div>
       </div>
     </div>

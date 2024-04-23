@@ -103,11 +103,7 @@ export default function ProductsByCategory() {
           <CarouselContent className="">
             {products.map((product: any) => (
               <CarouselItem key={product.id} className="basis-1/6 ">
-                <ProductCard
-                  title={product.title}
-                  image={product.image}
-                  price={product.price}
-                />
+                <ProductCard product={product} />
               </CarouselItem>
             ))}
           </CarouselContent>

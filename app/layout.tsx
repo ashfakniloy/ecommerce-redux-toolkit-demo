@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
-import "./globals.css";
+import { Toaster } from "sonner";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
+import "./globals.css";
+import Providers from "@/redux/providers";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -22,11 +24,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={roboto.className}>
-        <Header />
-        <main>
-          {children}
-          <Footer />
-        </main>
+        <Providers>
+          <Header />
+
+          <main>
+            {children}
+            <Footer />
+          </main>
+
+          <Toaster position="bottom-left" />
+        </Providers>
       </body>
     </html>
   );
