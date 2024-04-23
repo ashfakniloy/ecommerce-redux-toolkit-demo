@@ -23,6 +23,7 @@ import {
   selectTotalPrice,
   selectTotalQuantity,
 } from "@/redux/features/cart/cart-slice";
+import Link from "next/link";
 
 export default function ShoppingCart() {
   const showCart = useSelector(selectShowCart);
@@ -90,9 +91,13 @@ export default function ShoppingCart() {
                     <div className="flex-1 mr-3">
                       <div className="flex justify-between items-center">
                         <div className="flex-1">
-                          <p className="text-sm lg:text-base line-clamp-3">
+                          <Link
+                            href={`/products/${item.id}`}
+                            className="inline text-sm lg:text-base line-clamp-3 hover:underline"
+                            onClick={handleCartToggle}
+                          >
                             {item.title}
-                          </p>
+                          </Link>
                           <p className="text-xs lg:text-sm text-gray-600 capitalize">
                             Category: {item.category}
                           </p>
@@ -107,6 +112,7 @@ export default function ShoppingCart() {
                           <X className="size-4" />
                         </Button>
                       </div>
+
                       <div className="mt-2 flex justify-between items-center">
                         <div className="flex items-center gap-2">
                           <Button
@@ -145,7 +151,7 @@ export default function ShoppingCart() {
           </div>
 
           {totalQuantity > 0 && (
-            <div className="border-t border-gray-400">
+            <div className="border-t border-gray-300">
               <div className="mt-2 flex justify-end">
                 <p className="text-lg">Total: RS {totalPrice}</p>
               </div>
