@@ -1,12 +1,8 @@
 import { API_URL } from "@/config";
 
-export async function getSingleProduct({
-  id,
-}: {
-  id: string;
-}): Promise<ProductProps | null> {
+export async function getProducts(): Promise<ProductProps[] | null> {
   try {
-    const response = await fetch(`${API_URL}/products/${id}`);
+    const response = await fetch(`${API_URL}/products`);
     const data = await response.json();
 
     if (response.ok) {

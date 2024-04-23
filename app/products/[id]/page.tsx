@@ -11,6 +11,8 @@ type SingleProductPageProps = {
   };
 };
 
+// fetching data from server component instead of rtk query, as this page will be important for seo
+
 export async function generateMetadata({
   params: { id },
 }: SingleProductPageProps): Promise<Metadata> {
@@ -28,7 +30,7 @@ export async function generateMetadata({
     title: product.title,
     description: product.description,
     alternates: {
-      canonical: `/product/${id}`,
+      canonical: `/products/${id}`,
     },
     openGraph: {
       type: "article",
@@ -68,7 +70,7 @@ export default async function SingleProductPage({
   const { title, category, description, image, price, rating } = product;
 
   return (
-    <div className="container">
+    <section className="container">
       <p className="py-4 text-sm text-gray-700 capitalize">{`Products / ${category} / ${title}`}</p>
 
       <div className="mt-7 mb-20 grid grid-cols-1 lg:grid-cols-3 gap-10">
@@ -80,7 +82,6 @@ export default async function SingleProductPage({
           <h1 className="text-[22px] lg:text-3xl font-medium">{title}</h1>
 
           <div className="mt-1 lg:mt-2 flex gap-5">
-            {/* <p>Star:{rating.rate}</p> */}
             <StarRating rating={rating.rate} />
             <p>{rating.count} ratings</p>
           </div>
@@ -96,6 +97,6 @@ export default async function SingleProductPage({
           <p className="mt-7">{description}</p>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

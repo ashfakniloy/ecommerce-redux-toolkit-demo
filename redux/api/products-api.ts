@@ -1,11 +1,11 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { BASE_URL } from "@/config";
+import { API_URL } from "@/config";
 
 export const productsApi = createApi({
   reducerPath: "productsApi",
   refetchOnFocus: true,
   baseQuery: fetchBaseQuery({
-    baseUrl: BASE_URL,
+    baseUrl: API_URL,
   }),
 
   endpoints: (builder) => ({

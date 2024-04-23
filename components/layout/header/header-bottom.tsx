@@ -13,13 +13,15 @@ export default function HeaderBottom() {
             <span className="text-[17px] font-light">Browse By Category</span>
           </button>
 
-          <div className="ml-5 space-x-9 text-[13px] font-light">
-            {headerLinks.map((headerLink) => (
-              <Link key={headerLink.name} href={headerLink.link}>
-                {headerLink.name}
-              </Link>
-            ))}
-          </div>
+          <nav>
+            <ul className="ml-5 flex items-center gap-9 text-[13px] font-light">
+              {headerLinks.map((headerLink) => (
+                <li key={headerLink.name}>
+                  <Link href={headerLink.link}>{headerLink.name}</Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
         </div>
 
         <SocialLinks />

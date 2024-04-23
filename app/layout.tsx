@@ -4,6 +4,7 @@ import { Toaster } from "sonner";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import Providers from "@/redux/providers";
+import { BASE_URL } from "@/config";
 import "./globals.css";
 
 const roboto = Roboto({
@@ -12,11 +13,19 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(BASE_URL),
   title: {
     default: "Winstore",
     template: `%s | Winstore`,
   },
   description: "Winstore e-commerce",
+  openGraph: {
+    title: {
+      default: "Winstore",
+      template: `%s | Winstore`,
+    },
+    description: "Winstore e-commerce",
+  },
 };
 
 export default function RootLayout({

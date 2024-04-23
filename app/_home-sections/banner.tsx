@@ -1,13 +1,13 @@
 "use client";
 
+import Image from "next/image";
+import Autoplay from "embla-carousel-autoplay";
 import {
   Carousel,
   CarouselContent,
   CarouselDots,
   CarouselItem,
 } from "@/components/ui/carousel";
-import Image from "next/image";
-import Autoplay from "embla-carousel-autoplay";
 import { Button } from "@/components/ui/button";
 
 const slides = [
@@ -75,7 +75,7 @@ const slides = [
 
 export default function Banner() {
   return (
-    <div>
+    <section>
       <Carousel
         opts={{ loop: true }}
         plugins={[
@@ -116,6 +116,6 @@ export default function Banner() {
 
         <CarouselDots itemsLength={slides.length} />
       </Carousel>
-    </div>
+    </section>
   );
 }

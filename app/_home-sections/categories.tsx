@@ -37,7 +37,7 @@ export default function Categories() {
   }, [data]);
 
   return (
-    <div className="bg-[linear-gradient(#F8F5D6,#ffffff,#ffffff)]">
+    <section className="bg-[linear-gradient(#F8F5D6,#ffffff,#ffffff)]">
       <div className="py-2 container">
         {isLoading && <CategoriesSkeleton />}
         {isError && (
@@ -69,6 +69,6 @@ export default function Categories() {
 
         <div className="mt-9 border-b border-gray-300" />
       </div>
-    </div>
+    </section>
   );
 }

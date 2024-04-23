@@ -43,7 +43,7 @@ export default function ProductsByCategory() {
   };
 
   return (
-    <div className="container py-8 lg:py-[60px]">
+    <section className="container py-8 lg:py-[60px]">
       <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center">
         <p className="text-[28px]">
           <span className="text-custom-cyan">Products</span> By Category
@@ -132,6 +132,6 @@ export default function ProductsByCategory() {
           </Carousel>
         )}
       </div>
-    </div>
+    </section>
   );
 }

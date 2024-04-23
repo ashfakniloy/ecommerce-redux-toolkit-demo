@@ -13,7 +13,7 @@ export default function NewArrivals() {
   const { data: products, isLoading, isError } = useGetProductsQuery();
 
   return (
-    <div className="container py-8 lg:py-[60px]">
+    <section className="container py-8 lg:py-[60px]">
       <p className="text-[28px]">
         <span className="text-custom-cyan">New</span> Arrivals
       </p>
@@ -40,6 +40,6 @@ export default function NewArrivals() {
           </Carousel>
         )}
       </div>
-    </div>
+    </section>
   );
 }

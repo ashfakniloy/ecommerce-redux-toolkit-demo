@@ -25,7 +25,7 @@ const paymentMethodList = [
 
 export default function PaymentMethods() {
   return (
-    <div className="flex justify-end items-center gap-[11px]">
+    <div className="flex justify-between lg:justify-end items-center gap-2 lg:gap-[11px]">
       {paymentMethodList.map((method) => (
         <Image key={method.name} src={method.image} alt={method.name} />
       ))}

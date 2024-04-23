@@ -8,7 +8,7 @@ import WinstoreLogo from "@/public/logo.svg";
 
 export default function Footer() {
   return (
-    <div className="bg-custom-gray3 text-white">
+    <footer className="bg-custom-gray3 text-white">
       <div className="container py-10 lg:py-[56px]">
         <div className="flex flex-col lg:flex-row lg:justify-between gap-10 lg:gap-0 font-light">
           <div className="space-y-[14px]">
@@ -35,22 +35,22 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="flex flex-col lg:flex-row text-center lg:text-start gap-10 lg:gap-[160px]">
+          <nav className="flex flex-col lg:flex-row text-center lg:text-start gap-10 lg:gap-[160px]">
             {footerLinks.map((footerLink) => (
               <div key={footerLink.section}>
                 <p className="text-[20px] text-custom-cyan">
                   {footerLink.section}
                 </p>
-                <div className="mt-3 lg:mt-[21px] text-[13px] space-y-3">
+                <ul className="mt-3 lg:mt-[21px] text-[13px] space-y-3">
                   {footerLink.links.map((item) => (
-                    <p key={item.name}>
+                    <li key={item.name}>
                       <Link href={item.link}>{item.name}</Link>
-                    </p>
+                    </li>
                   ))}
-                </div>
+                </ul>
               </div>
             ))}
-          </div>
+          </nav>
         </div>
 
         <div className="mt-6">
@@ -59,6 +59,6 @@ export default function Footer() {
       </div>
 
       <Copyright />
-    </div>
+    </footer>
   );
 }
