@@ -18,7 +18,7 @@ export default function NewArrivals() {
         <span className="text-custom-cyan">New</span> Arrivals
       </p>
 
-      <div className="mt-[30px]">
+      <div className="mt-3">
         {isLoading && <ProductsSkeleton />}
         {isError && (
           <p className="h-[285px] flex justify-center items-center text-lg">
@@ -27,7 +27,7 @@ export default function NewArrivals() {
         )}
         {products && (
           <Carousel opts={{ align: "start", skipSnaps: true, dragFree: true }}>
-            <CarouselContent className="">
+            <CarouselContent className="py-2">
               {products.map((product) => (
                 <CarouselItem
                   key={product.id}

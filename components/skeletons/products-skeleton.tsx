@@ -5,13 +5,13 @@ export default function ProductsSkeleton() {
 
   return (
     <div className="">
-      <div className="hidden lg:flex gap-[29px]">
+      <div className="hidden lg:flex gap-[29px] py-2">
         {items.map((_, i) => (
           <Skeleton key={i} className="w-[186px] h-[285px]" />
         ))}
       </div>
 
-      <div className="lg:hidden flex gap-[29px]">
+      <div className="lg:hidden flex gap-[29px] py-2">
         <Skeleton className="w-[186px] h-[273px]" />
         <Skeleton className="w-[186px] h-[273px]" />
       </div>

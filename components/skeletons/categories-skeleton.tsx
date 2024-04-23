@@ -5,7 +5,7 @@ export default function CategoriesSkeleton() {
 
   return (
     <div className="ml-4">
-      <div className="hidden lg:flex gap-[47px]">
+      <div className="hidden lg:flex gap-[47px] py-2">
         {items.map((_, i) => (
           <Skeleton
             key={i}
@@ -14,7 +14,7 @@ export default function CategoriesSkeleton() {
         ))}
       </div>
 
-      <div className="lg:hidden flex gap-[47px]">
+      <div className="lg:hidden flex gap-[47px] py-2">
         <Skeleton className="w-[272px] h-[200px] border border-white" />
         <Skeleton className="w-[65px] h-[200px] border border-white" />
       </div>

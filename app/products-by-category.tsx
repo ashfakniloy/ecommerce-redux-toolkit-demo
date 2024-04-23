@@ -111,7 +111,7 @@ export default function ProductsByCategory() {
         </div>
       </div>
 
-      <div className="mt-[30px]">
+      <div className="mt-3">
         {productsFetching && !currentProducts && <ProductsSkeleton />}
         {productsError && (
           <p className="h-[285px] flex justify-center items-center text-lg">
@@ -120,7 +120,7 @@ export default function ProductsByCategory() {
         )}
         {currentProducts && (
           <Carousel opts={{ align: "start", skipSnaps: true, dragFree: true }}>
-            <CarouselContent className="">
+            <CarouselContent className="py-2">
               {currentProducts.map((product) => (
                 <CarouselItem
                   key={product.id}

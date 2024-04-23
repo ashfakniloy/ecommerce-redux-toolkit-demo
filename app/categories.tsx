@@ -38,7 +38,7 @@ export default function Categories() {
 
   return (
     <div className="bg-[linear-gradient(#F8F5D6,#ffffff,#ffffff)]">
-      <div className="py-4 container">
+      <div className="py-2 container">
         {isLoading && <CategoriesSkeleton />}
         {isError && (
           <p className="h-[200px] flex justify-center items-center text-lg">
@@ -47,7 +47,7 @@ export default function Categories() {
         )}
         {categories.length > 0 && (
           <Carousel opts={{ align: "start", skipSnaps: true, dragFree: true }}>
-            <CarouselContent className="mx-auto -ml-3 lg:ml-0">
+            <CarouselContent className="mx-auto -ml-3 lg:ml-0 py-2">
               {categories.map((category, i) => (
                 <CarouselItem
                   key={i}

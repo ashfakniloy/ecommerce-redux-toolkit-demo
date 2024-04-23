@@ -4,27 +4,27 @@ export const footerLinks = [
     links: [
       {
         name: "Installments",
-        link: "/installments",
+        link: "/#installments",
       },
       {
         name: "Electronics",
-        link: "/electronics",
+        link: "/#electronics",
       },
       {
         name: "Grocery",
-        link: "/grocery",
+        link: "/#grocery",
       },
       {
         name: "Health & Beauty",
-        link: "/health-and-beauty",
+        link: "/#health-and-beauty",
       },
       {
         name: "Home Appliances",
-        link: "/home-appliances",
+        link: "/#home-appliances",
       },
       {
         name: "Mobile Accessiories",
-        link: "/mobile-accessiories",
+        link: "/#mobile-accessiories",
       },
     ],
   },
@@ -33,27 +33,27 @@ export const footerLinks = [
     links: [
       {
         name: "About Us",
-        link: "/about-us",
+        link: "/#about-us",
       },
       {
         name: "Contact Us",
-        link: "/contact-us",
+        link: "/#contact-us",
       },
       {
         name: "FAQs",
-        link: "/faqs",
+        link: "/#faqs",
       },
       {
         name: "Shipping & Return",
-        link: "/shipping-and-return",
+        link: "/#shipping-and-return",
       },
       {
         name: "Privacy Policy",
-        link: "/privacy-policy",
+        link: "/#privacy-policy",
       },
       {
         name: "Terms & Conditions",
-        link: "/terms-and-conditions",
+        link: "/#terms-and-conditions",
       },
     ],
   },
@@ -62,27 +62,27 @@ export const footerLinks = [
     links: [
       {
         name: "My Account",
-        link: "/my-account",
+        link: "/#my-account",
       },
       {
         name: "Track Your Order",
-        link: "/track-your-order",
+        link: "/#track-your-order",
       },
       {
         name: "Recently Viewed",
-        link: "/recently-viewed",
+        link: "/#recently-viewed",
       },
       {
         name: "Whshlist",
-        link: "/whshlist",
+        link: "/#whshlist",
       },
       {
         name: "Compare",
-        link: "/compare",
+        link: "/#compare",
       },
       {
         name: "Become A Vendor",
-        link: "/become-a-vendor",
+        link: "/#become-a-vendor",
       },
     ],
   },

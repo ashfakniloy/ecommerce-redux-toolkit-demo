@@ -16,3 +16,4 @@ export { MagnifyingGlass } from "./magnifying-glass";
 export { X } from "./x";
 export { Plus } from "./plus";
 export { Minus } from "./minus";
+export { Star } from "./star";

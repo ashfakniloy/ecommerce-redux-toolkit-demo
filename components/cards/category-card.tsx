@@ -8,7 +8,7 @@ export default function CategoryCard({
   imageSrc: string;
 }) {
   return (
-    <div className="w-[272px] h-[200px] relative border border-white">
+    <div className="w-[272px] h-[200px] relative border border-white hover:shadow-md transition-shadow duration-200">
       <Image
         src={imageSrc}
         alt={name}

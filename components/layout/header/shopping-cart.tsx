@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "sonner";
@@ -18,19 +17,24 @@ import {
   decrementQuantity,
   incrementQuantity,
   removeFromCart,
+  toggleCart,
   selectItems,
+  selectShowCart,
   selectTotalPrice,
+  selectTotalQuantity,
 } from "@/redux/features/cart/cart-slice";
 
 export default function ShoppingCart() {
-  const [showCart, setShowCart] = useState(false);
-
+  const showCart = useSelector(selectShowCart);
   const cartItems = useSelector(selectItems);
   const totalPrice = useSelector(selectTotalPrice);
-
-  const totalQuantity = cartItems.reduce((acc, item) => acc + item.quantity, 0);
+  const totalQuantity = useSelector(selectTotalQuantity);
 
   const dispatch = useDispatch();
+
+  const handleCartToggle = () => {
+    dispatch(toggleCart());
+  };
 
   const handleIncrement = (itemId: number) => {
     dispatch(incrementQuantity(itemId));
@@ -51,11 +55,7 @@ export default function ShoppingCart() {
 
   return (
     <>
-      <button
-        type="button"
-        className="flex gap-1"
-        onClick={() => setShowCart(true)}
-      >
+      <button type="button" className="flex gap-1" onClick={handleCartToggle}>
         <div className="relative">
           <span className="absolute top-[-15px] inset-x-3 text-yellow-500">
             {totalQuantity}
@@ -65,7 +65,7 @@ export default function ShoppingCart() {
         <span className="font-light">Cart</span>
       </button>
 
-      <Sheet open={showCart} onOpenChange={setShowCart}>
+      <Sheet open={showCart} onOpenChange={handleCartToggle}>
         <SheetContent className="w-full lg:min-w-[500px] flex flex-col justify-between">
           <div className="">
             <SheetHeader>
