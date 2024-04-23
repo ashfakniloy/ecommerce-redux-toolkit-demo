@@ -4,7 +4,7 @@ export default function ProductsSkeleton() {
   const items = [...Array(6)];
 
   return (
-    <div className="">
+    <div>
       <div className="hidden lg:flex gap-[29px] py-2">
         {items.map((_, i) => (
           <Skeleton key={i} className="w-[186px] h-[285px]" />

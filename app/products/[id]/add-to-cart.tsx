@@ -26,7 +26,7 @@ export default function AddToCart({ product }: { product: ProductProps }) {
   return (
     <div>
       <div className="flex items-center gap-5">
-        <span className="">Quantity</span>
+        <span>Quantity</span>
         <div className="flex items-center gap-4">
           <Button
             size="icon"

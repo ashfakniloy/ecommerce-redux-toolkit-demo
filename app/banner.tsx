@@ -5,8 +5,6 @@ import {
   CarouselContent,
   CarouselDots,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "@/components/ui/carousel";
 import Image from "next/image";
 import Autoplay from "embla-carousel-autoplay";
@@ -16,7 +14,7 @@ const slides = [
   {
     name: "slide 1",
     title: (
-      <span className="">
+      <span>
         Shop{" "}
         <span className="text-custom-cyan3">
           Computer <br /> & experience
@@ -36,7 +34,7 @@ const slides = [
   {
     name: "slide 2",
     title: (
-      <span className="">
+      <span>
         Shop{" "}
         <span className="text-custom-cyan3">
           Computer <br /> & experience 2
@@ -56,7 +54,7 @@ const slides = [
   {
     name: "slide 3",
     title: (
-      <span className="">
+      <span>
         Shop{" "}
         <span className="text-custom-cyan3">
           Computer <br /> & experience 3
@@ -77,7 +75,7 @@ const slides = [
 
 export default function Banner() {
   return (
-    <div className="">
+    <div>
       <Carousel
         opts={{ loop: true }}
         plugins={[

@@ -58,7 +58,6 @@ export default function ProductsByCategory() {
           {categories && (
             <Carousel
               opts={{ align: "start", skipSnaps: true, dragFree: true }}
-              className=""
             >
               <CarouselContent className="h-[31px] lg:w-[770px] -mr-10">
                 {categories.map((category, i) => (

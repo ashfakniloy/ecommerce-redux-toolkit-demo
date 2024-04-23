@@ -67,7 +67,7 @@ export default function ShoppingCart() {
 
       <Sheet open={showCart} onOpenChange={handleCartToggle}>
         <SheetContent className="w-full lg:min-w-[500px] flex flex-col justify-between">
-          <div className="">
+          <div>
             <SheetHeader>
               <SheetTitle className="text-2xl">Cart</SheetTitle>
             </SheetHeader>
@@ -118,7 +118,7 @@ export default function ShoppingCart() {
                           >
                             <Minus className="size-4" />
                           </Button>
-                          <span className="">{item.quantity}</span>
+                          <span>{item.quantity}</span>
                           <Button
                             size="icon"
                             type="button"

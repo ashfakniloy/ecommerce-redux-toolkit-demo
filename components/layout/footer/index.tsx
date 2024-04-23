@@ -43,7 +43,7 @@ export default function Footer() {
                 </p>
                 <div className="mt-3 lg:mt-[21px] text-[13px] space-y-3">
                   {footerLink.links.map((item) => (
-                    <p key={item.name} className="">
+                    <p key={item.name}>
                       <Link href={item.link}>{item.name}</Link>
                     </p>
                   ))}

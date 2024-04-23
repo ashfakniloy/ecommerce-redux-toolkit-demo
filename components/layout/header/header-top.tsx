@@ -37,7 +37,7 @@ export default function HeaderTop() {
             <p className="text-[9px]">Call Us Now</p>
             <div className="mt-px flex items-center gap-1 text-[13px]">
               <Headphone />
-              <p className="">+011 5827918</p>
+              <p>+011 5827918</p>
             </div>
             <p className="mt-1 text-[13px]">Sign In</p>
           </div>
