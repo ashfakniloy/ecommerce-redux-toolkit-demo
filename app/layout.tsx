@@ -3,8 +3,8 @@ import { Roboto } from "next/font/google";
 import { Toaster } from "sonner";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
-import "./globals.css";
 import Providers from "@/redux/providers";
+import "./globals.css";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -12,8 +12,11 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
-  title: "Winstore",
-  description: "Winstore ecommerce",
+  title: {
+    default: "Winstore",
+    template: `%s | Winstore`,
+  },
+  description: "Winstore e-commerce",
 };
 
 export default function RootLayout({
