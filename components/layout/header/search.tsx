@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { MagnifyingGlass } from "@/components/icons";
 import {
   Select,
@@ -8,33 +9,37 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { useState } from "react";
-
-const categories = ["All Categories", "category1", "category2", "category3"];
+import { useGetCategoriesQuery } from "@/redux/api/products-api";
 
 export default function Search() {
-  const [value, setValue] = useState(categories[0]);
+  const { data, isLoading, isError, isSuccess } = useGetCategoriesQuery();
+
+  const categories = ["All Categories", ...(data ?? [])];
+
+  const [value, setValue] = useState(categories?.[0]);
 
   return (
     <div className="flex">
       <Select value={value} onValueChange={setValue}>
-        <SelectTrigger className="w-[155px] rounded-r-none outline-none bg-white text-gray-500">
-          <SelectValue placeholder={value} />
-
-          {/* {value ? (
-                <SelectValue placeholder={value} />
-              ) : (
-                <p className="text-muted-foreground">{placeholder}</p>
-              )} */}
+        <SelectTrigger className="w-[155px] rounded-r-none outline-none bg-white text-gray-500 capitalize">
+          {isLoading && <p>Loading...</p>}
+          {isError && <p>Something went wrong</p>}
+          {isSuccess && <SelectValue placeholder={value} />}
         </SelectTrigger>
 
-        <SelectContent className="w-[200px] bg-white">
-          {categories.map((option) => (
-            <SelectItem key={option} value={option} className="px-8">
-              {option}
-            </SelectItem>
-          ))}
-        </SelectContent>
+        {isSuccess && (
+          <SelectContent className="w-[200px] bg-white">
+            {categories.map((option) => (
+              <SelectItem
+                key={option}
+                value={option}
+                className="px-8 capitalize"
+              >
+                {option}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        )}
       </Select>
       <input
         type="text"

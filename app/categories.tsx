@@ -1,3 +1,7 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import { useGetCategoriesQuery } from "@/redux/api/products-api";
 import {
   Carousel,
   CarouselContent,
@@ -7,45 +11,36 @@ import {
 } from "@/components/ui/carousel";
 import CategoryCard from "@/components/cards/category-card";
 
-const categoriesData = [
-  {
-    name: "Electronics",
-    image: "/images/categories/electronics.png",
-  },
-  {
-    name: "Fashion",
-    image: "/images/categories/fashion.png",
-  },
-  {
-    name: "Appliances",
-    image: "/images/categories/appliances.png",
-  },
-  {
-    name: "Babies Store",
-    image: "/images/categories/babies-store.png",
-  },
-  {
-    name: "Fashion",
-    image: "/images/categories/fashion.png",
-  },
-  {
-    name: "Appliances",
-    image: "/images/categories/appliances.png",
-  },
-  {
-    name: "Babies Store",
-    image: "/images/categories/babies-store.png",
-  },
-];
+const categoryImages: { [key: string]: string } = {
+  electronics: "/images/categories/electronics.png",
+  jewelery: "/images/categories/jewelry.webp",
+  "men's clothing": "/images/categories/mens-clothing.webp",
+  "women's clothing": "/images/categories/womens-clothing.webp",
+};
 
 export default function Categories() {
+  const { data, isLoading, isError } = useGetCategoriesQuery();
+
+  const [categories, setCategories] = useState<
+    { name: string; image: string }[]
+  >([]);
+
+  useEffect(() => {
+    if (data) {
+      const categoriesWithImages = data.map((category) => ({
+        name: category,
+        image: categoryImages[category] || "/images/not-available.webp",
+      }));
+      setCategories(categoriesWithImages);
+    }
+  }, [data]);
+
   return (
-    // <div className="bg-[linear-gradient(#f3edc9,#ffffff,#ffffff)]">
     <div className="bg-[linear-gradient(#F8F5D6,#ffffff,#ffffff)]">
       <div className="py-4 container">
         <Carousel opts={{ align: "start", skipSnaps: true, dragFree: true }}>
           <CarouselContent className="mx-auto">
-            {categoriesData.map((category, i) => (
+            {categories.map((category, i) => (
               <CarouselItem key={i} className="basis-1/4 ">
                 <CategoryCard name={category.name} imageSrc={category.image} />
               </CarouselItem>

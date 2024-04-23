@@ -1,3 +1,5 @@
+"use client";
+
 import ProductCard from "@/components/cards/product-card";
 import {
   Carousel,
@@ -6,34 +8,11 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { Suspense } from "react";
-
-async function getProducts() {
-  const response = await fetch("https://fakestoreapi.com/products");
-  const data = await response.json();
-
-  return data;
-}
-
-async function Products() {
-  const products = (await getProducts())?.slice(0, 10);
-
-  return (
-    <div className="">
-      <Carousel opts={{ align: "start", skipSnaps: true, dragFree: true }}>
-        <CarouselContent className="">
-          {products.map((product: any) => (
-            <CarouselItem key={product.id} className="basis-1/6 ">
-              <ProductCard product={product} />
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-      </Carousel>
-    </div>
-  );
-}
+import { useGetProductsQuery } from "@/redux/api/products-api";
 
 export default function NewArrivals() {
+  const { data: products, isLoading, isError } = useGetProductsQuery();
+
   return (
     <div className="container py-[60px]">
       <p className="text-[28px]">
@@ -41,9 +20,19 @@ export default function NewArrivals() {
       </p>
 
       <div className="mt-[30px]">
-        <Suspense fallback={"Loading..."}>
-          <Products />
-        </Suspense>
+        {isLoading && <p className="text-center">Loading...</p>}
+        {isError && <p className="text-center">Something went wrong</p>}
+        {products && (
+          <Carousel opts={{ align: "start", skipSnaps: true, dragFree: true }}>
+            <CarouselContent className="">
+              {products.map((product) => (
+                <CarouselItem key={product.id} className="basis-1/6 ">
+                  <ProductCard product={product} />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
+        )}
       </div>
     </div>
   );
