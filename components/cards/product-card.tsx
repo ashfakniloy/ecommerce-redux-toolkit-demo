@@ -19,9 +19,9 @@ export default function ProductCard({ product }: { product: ProductProps }) {
   return (
     <div className="w-[186px] p-[14px] border">
       <p className="text-xs">Bin Bakar Electronics</p>
-      <p className="mt-[11px] text-[15px] truncate">{title}</p>
+      <p className="mt-[11px] text-[15px] truncate text-custom-teal">{title}</p>
 
-      <div className="mt-[11px] flex justify-center h-[150px]">
+      <div className="mt-[11px] flex justify-center h-[110px]">
         <Image
           src={image}
           alt={title}

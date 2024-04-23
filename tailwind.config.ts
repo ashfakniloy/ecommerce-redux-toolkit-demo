@@ -43,6 +43,7 @@ const config = {
         "custom-cyan": "#00CAD7",
         "custom-cyan2": "#15ADB7",
         "custom-cyan3": "#0AAEB9",
+        "custom-teal": "#034E53",
       },
     },
   },

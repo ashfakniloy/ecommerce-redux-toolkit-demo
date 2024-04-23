@@ -12,6 +12,8 @@ import {
   useGetCategoriesQuery,
   useGetProductsByCategoryQuery,
 } from "@/redux/api/products-api";
+import ProductsSkeleton from "@/components/skeletons/products-skeleton";
+import { Skeleton } from "@/components/ui/skeleton";
 
 export default function ProductsByCategory() {
   const {
@@ -48,7 +50,7 @@ export default function ProductsByCategory() {
         </p>
 
         <div className="flex items-center gap-[60px] text-[19px]">
-          {categoriesLoading && <p>Loading...</p>}
+          {categoriesLoading && <Skeleton className="w-[833px] h-[31px]" />}
           {categoriesError && <p>Something went wrong</p>}
 
           {categories?.map((category, i) => (
@@ -92,8 +94,12 @@ export default function ProductsByCategory() {
       </div>
 
       <div className="mt-[30px]">
-        {productsFetching && !currentProducts && <p>Loading...</p>}
-        {productsError && <p>Something went wrong</p>}
+        {productsFetching && !currentProducts && <ProductsSkeleton />}
+        {productsError && (
+          <p className="h-[285px] flex justify-center items-center text-lg">
+            Something went wrong
+          </p>
+        )}
         <Carousel opts={{ align: "start", skipSnaps: true, dragFree: true }}>
           <CarouselContent className="">
             {currentProducts?.map((product) => (

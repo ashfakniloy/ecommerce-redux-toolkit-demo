@@ -10,6 +10,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import CategoryCard from "@/components/cards/category-card";
+import CategoriesSkeleton from "@/components/skeletons/categories-skeleton";
 
 const categoryImages: { [key: string]: string } = {
   electronics: "/images/categories/electronics.png",
@@ -38,17 +39,28 @@ export default function Categories() {
   return (
     <div className="bg-[linear-gradient(#F8F5D6,#ffffff,#ffffff)]">
       <div className="py-4 container">
-        <Carousel opts={{ align: "start", skipSnaps: true, dragFree: true }}>
-          <CarouselContent className="mx-auto">
-            {categories.map((category, i) => (
-              <CarouselItem key={i} className="basis-1/4 ">
-                <CategoryCard name={category.name} imageSrc={category.image} />
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
-        </Carousel>
+        {isLoading && <CategoriesSkeleton />}
+        {isError && (
+          <p className="h-[200px] flex justify-center items-center text-lg">
+            Something went wrong
+          </p>
+        )}
+        {categories.length > 0 && (
+          <Carousel opts={{ align: "start", skipSnaps: true, dragFree: true }}>
+            <CarouselContent className="mx-auto">
+              {categories.map((category, i) => (
+                <CarouselItem key={i} className="basis-1/4 ">
+                  <CategoryCard
+                    name={category.name}
+                    imageSrc={category.image}
+                  />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
+        )}
 
         <div className="mt-9 border-b border-gray-300" />
       </div>
