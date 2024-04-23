@@ -91,18 +91,18 @@ export default function Banner() {
         <CarouselContent>
           {slides.map((slide, i) => (
             <CarouselItem key={i} className="relative px-0">
-              <div className="relative w-full h-[418px]">
+              <div className="relative w-full h-[300px] lg:h-[418px]">
                 <Image
                   src={slide.image}
                   alt={slide.name}
                   fill
+                  sizes="100vw"
                   className="object-cover"
                 />
 
                 <div className="container h-full">
-                  {/* <div className="absolute mt-[60px]"> */}
-                  <div className="absolute h-full flex flex-col justify-center">
-                    <h1 className="text-[57px] leading-[53px]">
+                  <div className="absolute h-full mx-5 lg:mx-0 flex flex-col justify-center">
+                    <h1 className="text-3xl lg:text-[57px] lg:leading-[53px]">
                       {slide.title}
                     </h1>
 

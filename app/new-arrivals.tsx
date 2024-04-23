@@ -6,8 +6,6 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "@/components/ui/carousel";
 import { useGetProductsQuery } from "@/redux/api/products-api";
 
@@ -15,7 +13,7 @@ export default function NewArrivals() {
   const { data: products, isLoading, isError } = useGetProductsQuery();
 
   return (
-    <div className="container py-[60px]">
+    <div className="container py-8 lg:py-[60px]">
       <p className="text-[28px]">
         <span className="text-custom-cyan">New</span> Arrivals
       </p>
@@ -31,7 +29,10 @@ export default function NewArrivals() {
           <Carousel opts={{ align: "start", skipSnaps: true, dragFree: true }}>
             <CarouselContent className="">
               {products.map((product) => (
-                <CarouselItem key={product.id} className="basis-1/6 ">
+                <CarouselItem
+                  key={product.id}
+                  className="basis-3/6 lg:basis-1/6"
+                >
                   <ProductCard product={product} />
                 </CarouselItem>
               ))}

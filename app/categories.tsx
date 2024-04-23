@@ -47,9 +47,12 @@ export default function Categories() {
         )}
         {categories.length > 0 && (
           <Carousel opts={{ align: "start", skipSnaps: true, dragFree: true }}>
-            <CarouselContent className="mx-auto">
+            <CarouselContent className="mx-auto -ml-3 lg:ml-0">
               {categories.map((category, i) => (
-                <CarouselItem key={i} className="basis-1/4 ">
+                <CarouselItem
+                  key={i}
+                  className="basis-3/4 lg:basis-1/4 ml-3 lg:ml-0"
+                >
                   <CategoryCard
                     name={category.name}
                     imageSrc={category.image}
@@ -57,8 +60,10 @@ export default function Categories() {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
+            <span className="hidden lg:block">
+              <CarouselPrevious />
+              <CarouselNext />
+            </span>
           </Carousel>
         )}
 

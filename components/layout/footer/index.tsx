@@ -9,11 +9,15 @@ import WinstoreLogo from "@/public/logo.svg";
 export default function Footer() {
   return (
     <div className="bg-custom-gray3 text-white">
-      <div className="container py-[56px]">
-        <div className="flex justify-between font-light">
+      <div className="container py-10 lg:py-[56px]">
+        <div className="flex flex-col lg:flex-row lg:justify-between gap-10 lg:gap-0 font-light">
           <div className="space-y-[14px]">
-            <Image src={WinstoreLogo} alt="winstore logo" />
-            <div className="space-y-[14px] leading-[17px]">
+            <Image
+              src={WinstoreLogo}
+              alt="winstore logo"
+              className="mx-auto lg:mx-0"
+            />
+            <div className="flex flex-col items-center lg:items-start space-y-[14px]">
               <p className="text-lg text-custom-cyan">
                 Got questions? Call us 24/7!
               </p>
@@ -22,20 +26,22 @@ export default function Footer() {
                 <p>0317 1777015</p>
               </div>
             </div>
-            <div className="leading-[17px]">
+            <div className="flex flex-col items-center lg:items-start">
               <p className="text-lg text-custom-cyan">Contact info</p>
               <p className="text-[13px]">info@winstore.pk</p>
             </div>
-            <SocialLinks />
+            <div className="flex flex-col items-center lg:items-start">
+              <SocialLinks />
+            </div>
           </div>
 
-          <div className="flex gap-[160px]">
+          <div className="flex flex-col lg:flex-row text-center lg:text-start gap-10 lg:gap-[160px]">
             {footerLinks.map((footerLink) => (
               <div key={footerLink.section}>
                 <p className="text-[20px] text-custom-cyan">
                   {footerLink.section}
                 </p>
-                <div className="mt-[21px] text-[13px] space-y-3">
+                <div className="mt-3 lg:mt-[21px] text-[13px] space-y-3">
                   {footerLink.links.map((item) => (
                     <p key={item.name} className="">
                       <Link href={item.link}>{item.name}</Link>

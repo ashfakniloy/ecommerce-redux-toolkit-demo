@@ -9,7 +9,13 @@ export default function CategoryCard({
 }) {
   return (
     <div className="w-[272px] h-[200px] relative border border-white">
-      <Image src={imageSrc} alt={name} fill className="object-cover" />
+      <Image
+        src={imageSrc}
+        alt={name}
+        sizes="(max-width: 768px) 100vw, 40vw"
+        fill
+        className="object-cover"
+      />
       <div className="absolute bottom-3 -left-2.5 w-[98%] px-3 py-2 shadow-md bg-white/95">
         <div className="flex justify-between items-center">
           <p className="text-[22px] capitalize">{name}</p>

@@ -43,35 +43,53 @@ export default function ProductsByCategory() {
   };
 
   return (
-    <div className="container py-[60px]">
-      <div className="flex justify-between items-center">
+    <div className="container py-8 lg:py-[60px]">
+      <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center">
         <p className="text-[28px]">
           <span className="text-custom-cyan">Products</span> By Category
         </p>
 
-        <div className="flex items-center gap-[60px] text-[19px]">
-          {categoriesLoading && <Skeleton className="w-[833px] h-[31px]" />}
+        <div className="mt-5 lg:mt-2 lg:flex items-center gap-[60px] text-base lg:text-[19px]">
+          {categoriesLoading && (
+            <Skeleton className="w-full lg:w-[833px] h-[31px]" />
+          )}
           {categoriesError && <p>Something went wrong</p>}
 
-          {categories?.map((category, i) => (
-            <div key={category} className="relative">
-              <button
-                type="button"
-                onClick={() => setActiveCategory(i)}
-                className={`relative uppercase ${
-                  activeCategory === i ? "text-custom-cyan" : "text-black"
-                }`}
-              >
-                {category}
-              </button>
-              {activeCategory === i && (
-                <div className="absolute mt-1 w-full border-b-[3px] border-custom-cyan2"></div>
-              )}
-            </div>
-          ))}
+          {categories && (
+            <Carousel
+              opts={{ align: "start", skipSnaps: true, dragFree: true }}
+              className=""
+            >
+              <CarouselContent className="h-[31px] lg:w-[770px] -mr-10">
+                {categories.map((category, i) => (
+                  <CarouselItem
+                    key={category}
+                    className="basis-2.5/6 lg:basis-auto pr-10"
+                  >
+                    <div className="relative">
+                      <button
+                        type="button"
+                        onClick={() => setActiveCategory(i)}
+                        className={`relative uppercase ${
+                          activeCategory === i
+                            ? "text-custom-cyan"
+                            : "text-black"
+                        }`}
+                      >
+                        {category}
+                      </button>
+                      {activeCategory === i && (
+                        <div className="absolute mt-1 w-full border-b-[3px] border-custom-cyan2"></div>
+                      )}
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+            </Carousel>
+          )}
 
           {categories && (
-            <div className="flex items-center gap-5">
+            <div className="hidden lg:flex items-center gap-5">
               <button
                 type="button"
                 onClick={handlePrevCategory}
@@ -100,15 +118,20 @@ export default function ProductsByCategory() {
             Something went wrong
           </p>
         )}
-        <Carousel opts={{ align: "start", skipSnaps: true, dragFree: true }}>
-          <CarouselContent className="">
-            {currentProducts?.map((product) => (
-              <CarouselItem key={product.id} className="basis-1/6 ">
-                <ProductCard product={product} />
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-        </Carousel>
+        {currentProducts && (
+          <Carousel opts={{ align: "start", skipSnaps: true, dragFree: true }}>
+            <CarouselContent className="">
+              {currentProducts.map((product) => (
+                <CarouselItem
+                  key={product.id}
+                  className="basis-3/6 lg:basis-1/6 "
+                >
+                  <ProductCard product={product} />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
+        )}
       </div>
     </div>
   );

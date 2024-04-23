@@ -17,11 +17,11 @@ export default function ProductCard({ product }: { product: ProductProps }) {
   };
 
   return (
-    <div className="w-[186px] p-[14px] border">
+    <div className="w-[186px] p-2 lg:p-[14px] border">
       <p className="text-xs">Bin Bakar Electronics</p>
       <p className="mt-[11px] text-[15px] truncate text-custom-teal">{title}</p>
 
-      <div className="mt-[11px] flex justify-center h-[110px]">
+      <div className="mt-[11px] w-full flex justify-center h-[110px]">
         <Image
           src={image}
           alt={title}
@@ -34,7 +34,7 @@ export default function ProductCard({ product }: { product: ProductProps }) {
       <Button
         type="button"
         variant="classic"
-        className="mt-[11px]"
+        className="mt-[11px] w-full"
         onClick={handleAddToCart}
       >
         Add to cart

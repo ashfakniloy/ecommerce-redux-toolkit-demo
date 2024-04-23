@@ -4,7 +4,6 @@ import * as React from "react";
 import useEmblaCarousel, {
   type UseEmblaCarouselType,
 } from "embla-carousel-react";
-// import { ArrowLeft, ArrowRight } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -214,13 +213,6 @@ const CarouselPrevious = React.forwardRef<
           : "-top-12 left-1/2 -translate-x-1/2 rotate-90",
         className
       )}
-      // className={cn(
-      //   "absolute h-8 w-8 rounded-full",
-      //   orientation === "horizontal"
-      //     ? "-left-12 top-1/2 -translate-y-1/2"
-      //     : "-top-12 left-1/2 -translate-x-1/2 rotate-90",
-      //   className
-      // )}
       disabled={!canScrollPrev}
       onClick={scrollPrev}
       {...props}
@@ -282,13 +274,12 @@ function CarouselDots({ itemsLength }: CarouselDotsProps) {
 
   React.useEffect(() => {
     function selectHandler() {
-      // selectedScrollSnap gives us the current selected index.
       const index = api?.selectedScrollSnap();
       setSelectedIndex(index || 0);
     }
 
     api?.on("select", selectHandler);
-    // cleanup
+
     return () => {
       api?.off("select", selectHandler);
     };
@@ -302,7 +293,7 @@ function CarouselDots({ itemsLength }: CarouselDotsProps) {
         return (
           <div
             key={index}
-            className={`h-2 w-[38px] rounded-full transition-all duration-300 bg-gray-600 cursor-pointer ${
+            className={`h-1.5 lg:h-2 w-7 lg:w-[38px] rounded-full transition-all duration-300 bg-gray-600 cursor-pointer ${
               !selected && "opacity-50"
             }`}
             onClick={() => handleDotClick(index)}

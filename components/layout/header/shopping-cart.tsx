@@ -1,6 +1,18 @@
 "use client";
 
+import { useState } from "react";
+import Image from "next/image";
 import { useDispatch, useSelector } from "react-redux";
+import { toast } from "sonner";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+} from "@/components/ui/sheet";
+import { Cart, X, Plus, Minus } from "@/components/icons";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { Button } from "@/components/ui/button";
 import {
   clearCart,
   decrementQuantity,
@@ -9,18 +21,6 @@ import {
   selectItems,
   selectTotalPrice,
 } from "@/redux/features/cart/cart-slice";
-import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-} from "@/components/ui/sheet";
-import { Cart, X, Plus, Minus } from "@/components/icons";
-import { useState } from "react";
-import Image from "next/image";
-import { ScrollArea } from "@/components/ui/scroll-area";
-import { Button } from "@/components/ui/button";
-import { toast } from "sonner";
 
 export default function ShoppingCart() {
   const [showCart, setShowCart] = useState(false);
@@ -66,18 +66,18 @@ export default function ShoppingCart() {
       </button>
 
       <Sheet open={showCart} onOpenChange={setShowCart}>
-        <SheetContent className="min-w-[500px] flex flex-col justify-between">
+        <SheetContent className="w-full lg:min-w-[500px] flex flex-col justify-between">
           <div className="">
             <SheetHeader>
               <SheetTitle className="text-2xl">Cart</SheetTitle>
             </SheetHeader>
 
             {totalQuantity > 0 ? (
-              <ScrollArea className="h-[80vh]">
+              <ScrollArea className="h-[73dvh] lg:h-[80vh]">
                 {cartItems.map((item) => (
                   <div
                     key={item.id}
-                    className="flex items-center gap-3 py-5 border-b last:border-b-0"
+                    className="flex items-center gap-3 py-3 lg:py-5 border-b last:border-b-0"
                   >
                     <div className="relative w-[80px] h-[50px]">
                       <Image
@@ -87,11 +87,13 @@ export default function ShoppingCart() {
                         className="object-cover rounded-md border"
                       />
                     </div>
-                    <div className="flex-1 mr-3 ">
+                    <div className="flex-1 mr-3">
                       <div className="flex justify-between items-center">
                         <div className="flex-1">
-                          <p>{item.title}</p>
-                          <p className="text-sm text-gray-600 capitalize">
+                          <p className="text-sm lg:text-base line-clamp-3">
+                            {item.title}
+                          </p>
+                          <p className="text-xs lg:text-sm text-gray-600 capitalize">
                             Category: {item.category}
                           </p>
                         </div>
