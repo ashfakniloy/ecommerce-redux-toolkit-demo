@@ -50,7 +50,7 @@ export const bestDealsCards = [
           </div>
 
           <div className="absolute top-0 -right-5 size-[140px] rounded-full p-3 flex justify-center items-center leading-tight text-[35px] text-white bg-gradient-to-r from-[#FF512F] to-[#DD2476]">
-            <span className="text-center ">
+            <span className="text-center">
               Save
               <br />
               10%
@@ -84,7 +84,7 @@ export const bestDealsCards = [
             RS. <span className="line-through">66,000</span>
           </p>
           <div className="mt-2 w-[150px] p-3 flex justify-center items-center text-3xl bg-gradient-to-r from-[#CC95C0] via-[#DBD4B4] to-[#7AA1D2]">
-            <span className="text-center ">
+            <span className="text-center">
               Save
               <br />
               10%
@@ -127,7 +127,7 @@ export const bestDealsCards = [
 
         <div className="w-full">
           <div className="mx-auto size-[90px] rounded-full p-3 flex justify-center items-center text-2xl bg-gradient-to-r from-[#EE9CA7] to-[#FFDDE1]">
-            <span className="text-center ">
+            <span className="text-center">
               Save
               <br />
               10%
@@ -154,7 +154,7 @@ export const bestDealsCards = [
           </div>
 
           <div className="absolute top-0 -right-4 size-[140px] rounded-full p-3 flex justify-center items-center leading-tight text-[35px] bg-gradient-to-r from-[#F09819] to-[#EDDE5D]">
-            <span className="text-center ">
+            <span className="text-center">
               Save
               <br />
               10%

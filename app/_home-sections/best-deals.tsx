@@ -11,7 +11,7 @@ export default function BestDeals() {
         {bestDealsCards.map((deal, i) => (
           <div
             key={i}
-            className={`p-5 border hover:shadow-md transition-shadow duration-300 cursor-pointer ${
+            className={`p-5 border hover:shadow-md cursor-pointer transition-shadow duration-300 ${
               i === 1 && "row-span-2"
             }`}
           >
