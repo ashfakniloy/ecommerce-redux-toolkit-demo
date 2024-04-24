@@ -1,4 +1,6 @@
-export function Cart() {
+import { cn } from "@/lib/utils";
+
+export function Cart({ className }: { className?: string }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -6,9 +8,10 @@ export function Cart() {
       height="25"
       fill="none"
       viewBox="0 0 24 25"
+      className={cn("stroke-white", className)}
     >
       <g
-        stroke="#fff"
+        // stroke="#fff"
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth="2"

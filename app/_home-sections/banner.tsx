@@ -9,69 +9,7 @@ import {
   CarouselItem,
 } from "@/components/ui/carousel";
 import { Button } from "@/components/ui/button";
-
-const slides = [
-  {
-    name: "slide 1",
-    title: (
-      <span>
-        Shop{" "}
-        <span className="text-custom-cyan3">
-          Computer <br /> & experience
-        </span>
-      </span>
-    ),
-    description: (
-      <p>
-        You cannot inspect quality into the product; it is already there. <br />
-        I am not a product of my circumstances. I am a product of my decisions.
-      </p>
-    ),
-    image: "/images/banner.png",
-    link: "/#offer-1",
-    discount: "40% off",
-  },
-  {
-    name: "slide 2",
-    title: (
-      <span>
-        Shop{" "}
-        <span className="text-custom-cyan3">
-          Computer <br /> & experience 2
-        </span>
-      </span>
-    ),
-    description: (
-      <p>
-        You cannot inspect quality into the product; it is already there. <br />
-        I am not a product of my circumstances. I am a product of my decisions.
-      </p>
-    ),
-    image: "/images/banner.png",
-    link: "/#offer-3",
-    discount: "25% off",
-  },
-  {
-    name: "slide 3",
-    title: (
-      <span>
-        Shop{" "}
-        <span className="text-custom-cyan3">
-          Computer <br /> & experience 3
-        </span>
-      </span>
-    ),
-    description: (
-      <p>
-        You cannot inspect quality into the product; it is already there. <br />
-        I am not a product of my circumstances. I am a product of my decisions.
-      </p>
-    ),
-    image: "/images/banner.png",
-    link: "/#offer-2",
-    discount: "10% off",
-  },
-];
+import { bannerSlides } from "@/components/banner-slides";
 
 export default function Banner() {
   return (
@@ -87,7 +25,7 @@ export default function Banner() {
         ]}
       >
         <CarouselContent>
-          {slides.map((slide, i) => (
+          {bannerSlides.map((slide, i) => (
             <CarouselItem key={i} className="relative px-0">
               <div className="relative w-full h-[300px] lg:h-[418px]">
                 <Image
@@ -97,6 +35,12 @@ export default function Banner() {
                   sizes="100vw"
                   className="object-cover"
                 />
+
+                <span className="absolute top-5 right-5 lg:top-16 lg:right-[220px] size-[100px] lg:size-[165px] rounded-full text-center p-3 flex justify-center items-center leading-tight text-[30px] lg:text-[45px] text-white bg-gradient-to-r from-[#FDC830] to-[#F37335]">
+                  {slide.discount}
+                  <br />
+                  Off
+                </span>
 
                 <div className="container h-full">
                   <div className="absolute h-full mx-5 lg:mx-0 flex flex-col justify-center">
@@ -114,7 +58,7 @@ export default function Banner() {
           ))}
         </CarouselContent>
 
-        <CarouselDots itemsLength={slides.length} />
+        <CarouselDots itemsLength={bannerSlides.length} />
       </Carousel>
     </section>
   );

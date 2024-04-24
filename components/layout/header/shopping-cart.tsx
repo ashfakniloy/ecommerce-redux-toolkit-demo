@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "sonner";
 import {
@@ -23,7 +24,6 @@ import {
   selectTotalPrice,
   selectTotalQuantity,
 } from "@/redux/features/cart/cart-slice";
-import Link from "next/link";
 
 export default function ShoppingCart() {
   const showCart = useSelector(selectShowCart);
@@ -56,14 +56,20 @@ export default function ShoppingCart() {
 
   return (
     <>
-      <button type="button" className="flex gap-1" onClick={handleCartToggle}>
+      <button
+        type="button"
+        className="flex gap-1 group "
+        onClick={handleCartToggle}
+      >
         <div className="relative">
           <span className="absolute top-[-15px] inset-x-3 text-yellow-500">
             {totalQuantity}
           </span>
-          <Cart />
+          <Cart className="group-hover:stroke-custom-cyan transition-colors duration-200" />
         </div>
-        <span className="font-light">Cart</span>
+        <span className="font-light group-hover:text-custom-cyan transition-colors duration-200">
+          Cart
+        </span>
       </button>
 
       <Sheet open={showCart} onOpenChange={handleCartToggle}>

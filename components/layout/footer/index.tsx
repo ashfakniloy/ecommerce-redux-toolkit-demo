@@ -44,7 +44,12 @@ export default function Footer() {
                 <ul className="mt-3 lg:mt-[21px] text-[13px] space-y-3">
                   {footerLink.links.map((item) => (
                     <li key={item.name}>
-                      <Link href={item.link}>{item.name}</Link>
+                      <Link
+                        href={item.link}
+                        className="hover:text-custom-cyan transition-colors duration-200"
+                      >
+                        {item.name}
+                      </Link>
                     </li>
                   ))}
                 </ul>

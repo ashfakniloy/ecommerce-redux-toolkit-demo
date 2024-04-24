@@ -17,7 +17,12 @@ export default function HeaderBottom() {
             <ul className="ml-5 flex items-center gap-9 text-[13px] font-light">
               {headerLinks.map((headerLink) => (
                 <li key={headerLink.name}>
-                  <Link href={headerLink.link}>{headerLink.name}</Link>
+                  <Link
+                    href={headerLink.link}
+                    className="hover:text-custom-cyan transition-colors duration-200"
+                  >
+                    {headerLink.name}
+                  </Link>
                 </li>
               ))}
             </ul>
